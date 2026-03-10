@@ -411,7 +411,14 @@ Use this context to answer questions when relevant. Stay in character as Volta a
             disabled={loading || loadingContext}
             aria-label="Message input"
           />
-          {loading ? (
+          {loadingContext ? (
+            <div className="context-loader" aria-live="polite" aria-label="Loading context">
+              <div className="context-loader-avatar-wrap">
+                <img src={botAvatar} alt="Siggy syncing context" className="context-loader-avatar" />
+              </div>
+              <span>SYNCING</span>
+            </div>
+          ) : loading ? (
             <button className="send-btn stop" onClick={stopGenerating} aria-label="Stop generating response">
               STOP
             </button>

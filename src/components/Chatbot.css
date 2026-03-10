@@ -449,6 +449,53 @@
 
         .composer input::placeholder { color: var(--text-soft); }
 
+        .context-loader {
+          height: 46px;
+          min-width: 112px;
+          border-radius: 13px;
+          border: 1px solid var(--line);
+          background: var(--chip-bg);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          color: var(--text-soft);
+          font-family: 'Sora', sans-serif;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          font-size: 0.68rem;
+          padding: 0 12px;
+        }
+
+        .context-loader-avatar-wrap {
+          width: 24px;
+          height: 24px;
+          border-radius: 999px;
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .context-loader-avatar-wrap::after {
+          content: "";
+          position: absolute;
+          inset: -3px;
+          border-radius: 999px;
+          border: 2px solid rgba(73, 192, 255, 0.25);
+          border-top-color: #00d9ff;
+          border-right-color: #3b82f6;
+          animation: spinner 0.9s linear infinite;
+        }
+
+        .context-loader-avatar {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 999px;
+          border: 1px solid var(--line);
+        }
+
         .send-btn {
           height: 46px;
           min-width: 112px;
@@ -487,6 +534,11 @@
           0% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
           100% { background-position: 0% 50%; }
+        }
+
+        @keyframes spinner {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
         }
 
         @keyframes driftA {
@@ -548,6 +600,8 @@
           .bubble { max-width: calc(100% - 36px); font-size: 0.92rem; }
           .composer { padding: 10px; }
           .composer input { height: 42px; font-size: 0.9rem; }
+          .context-loader { min-width: 98px; height: 42px; font-size: 0.6rem; padding: 0 10px; gap: 8px; }
+          .context-loader-avatar-wrap { width: 20px; height: 20px; }
           .send-btn { min-width: 84px; height: 42px; font-size: 0.78rem; }
         }
 
